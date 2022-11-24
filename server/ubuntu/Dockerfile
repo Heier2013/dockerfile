@@ -1,7 +1,8 @@
 FROM ubuntu:18.04
 
 # 配置镜像源加速
-RUN sed -i 's/ports.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
+RUN sed -i 's/ports.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list \
+    && sed -i 's/archive.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
 
 # 设置时区
 ENV TZ 'Asia/Shanghai'
