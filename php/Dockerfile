@@ -1,0 +1,10 @@
+FROM php:7.2-fpm
+
+ENV TZ="Asia/Shanghai"
+
+# 配置镜像源加速
+RUN sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list \
+    && sed -i 's/security.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
+
+# 添加work用户
+RUN groupadd -r work --gid=1001 && useradd -r -m -s /bin/bash -g work --uid=1001 work
